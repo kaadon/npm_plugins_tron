@@ -1,0 +1,36 @@
+{
+  "name": "@kaadon.com/tron",
+  "version": "0.0.2",
+  "description": "kaadon.com's plugins tron",
+  "keywords": [
+    "kaadon",
+    "plugins",
+    "tron",
+    "tronweb"
+  ],
+  "main": "tron/index.js",
+  "author": "kaadon.com",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir tron"
+  },
+  "files": ["/tron"],
+  "dependencies": {
+    "tronweb": "^5.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaadon/npm_plugins_tronweb.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7",
+    "@babel/core": "^7",
+    "@babel/generator": "^7",
+    "@babel/parser": "^7",
+    "@babel/preset-env": "^7",
+    "dotenv": "^16.3.1"
+  }
+}
