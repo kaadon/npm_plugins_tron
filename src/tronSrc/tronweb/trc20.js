@@ -12,3 +12,4 @@ export async function getTrc20Balance(contract_name, address) {
         return Promise.reject(e)
     }
 }
+
