@@ -5,3 +5,4 @@ export async function getTrc20Balance(contract_name, address) {
     let instance = await getTrc20Contract(coin[contract_name])
     return await instance.balanceOf(address).call()
 }
+
