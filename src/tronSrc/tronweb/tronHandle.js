@@ -1,6 +1,7 @@
 import __tronWeb from "./index";
 import {coin} from "./enum";
 import {mathHelper} from "@kaadon.com/helper";
+import {add} from "@kaadon.com/helper/helper/math";
 
 export async function getAccount(address) {
     try {
@@ -14,6 +15,7 @@ export async function getAccount(address) {
 
 export const getAddressResource =async (address) => {
     let addressData = await __tronWeb.trx.getAccountResources(address)
+    if (JSON.stringify(addressData) === '{}') return Promise.resolve(false);
     let energy = 0
     let net = 0
     if (addressData?.EnergyLimit) energy = addressData.EnergyLimit - ((addressData?.EnergyUsed)?addressData.EnergyUsed:0)
