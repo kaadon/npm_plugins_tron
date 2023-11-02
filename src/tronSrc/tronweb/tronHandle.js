@@ -1,5 +1,4 @@
 import __tronWeb from "./index";
-import Trc20Contract from "./Trc20Contract";
 import {coin} from "./enum";
 import {mathHelper} from "@kaadon.com/helper";
 
@@ -11,6 +10,16 @@ export async function getAccount(address) {
     } catch (e) {
         return Promise.reject(e)
     }
+}
+
+export const getAddressResource =async (address) => {
+    let addressData = await __tronWeb.trx.getAccountResources(address)
+    let energy = 0
+    let net = 0
+    if (addressData?.EnergyLimit) energy = addressData.EnergyLimit - ((addressData?.EnergyUsed)?addressData.EnergyUsed:0)
+    if (addressData?.NetLimit) net = (addressData.NetLimit - ((addressData?.NetUsed)?addressData.NetUsed:0))
+    if (addressData?.freeNetLimit) net += (addressData.freeNetLimit - ((addressData?.freeNetUsed)?addressData.freeNetUsed:0))
+    return {energy,net}
 }
 
 export async function getTrx(address) {

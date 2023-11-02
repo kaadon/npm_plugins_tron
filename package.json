@@ -1,6 +1,6 @@
 {
   "name": "@kaadon.com/tron",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "kaadon.com's plugins tron",
   "keywords": [
     "kaadon",
@@ -12,7 +12,8 @@
   "author": "kaadon.com",
   "license": "MIT",
   "scripts": {
-    "build": "babel src --out-dir tron"
+    "build": "babel src --out-dir tron",
+    "publish": "yarn build && npm publish"
   },
   "files": [
     "/tron"
